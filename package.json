@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.4"
+  },
+  "name": "aspd-conf-bot",
+  "version": "1.0.0",
+  "description": "aspd confession bot for takes and some other minor shit",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creepy0964/aspd-conf-bot.git"
+  },
+  "author": "creepy0964",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/creepy0964/aspd-conf-bot/issues"
+  },
+  "homepage": "https://github.com/creepy0964/aspd-conf-bot#readme"
+}
