@@ -4,4 +4,5 @@ WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install
 
-CMD ["node", "index.js"]
+CMD ["node", "takes.js"]
+CMD ["node", "ads.js"]
