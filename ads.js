@@ -11,7 +11,7 @@ bot.onText(/\/start/, (msg) => {
 });
 
 bot.onText(/\/info/, (msg) => {
-    bot.sendMessage(msg.chat.id, `Чтобы отправить запрос на ВП, заполните анкету по примеру из канала.\n\nВерсия ботов: ${version}@master. По всем вопросам обращаться к @creepy0964`);
+    bot.sendMessage(msg.chat.id, `Чтобы отправить запрос на ВП, заполните анкету по примеру из канала.\n\nВерсия ботов: ${version}@master. По всем вопросам обращаться к @hopeeater`);
 });
 
 bot.on('message', (msg) => {
