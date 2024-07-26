@@ -47,3 +47,5 @@ bot.on('edited_message', (msg) => {
 bot.on('polling_error', (err) => {
     console.log(err);
 });
+
+// fuck all niggers
