@@ -9,6 +9,8 @@ services:
       - ./bot:/app
       - db-volume:/db
     command: "npm start"
+    networks:
+      - xpd-network
   
   xpd-api:
     image: node:latest
@@ -20,6 +22,8 @@ services:
       - ./api:/app
       - db-volume:/db
     command: "npm start"
+    networks:
+      - xpd-network
 
 volumes:
   db-volume:
@@ -28,3 +32,7 @@ volumes:
       type: none
       device: /root/xpd-conf-bot
       o: bind
+
+networks:
+  xpd-network:
+    driver: bridge
