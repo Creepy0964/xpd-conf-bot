@@ -9,7 +9,7 @@
     "description": "xpd confession bot for takes and some other minor shit",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+      "start": "node --env-file=.env index.js"
     },
     "repository": {
       "type": "git",

@@ -5,9 +5,6 @@ services:
     image: node:latest
     container_name: xpd-conf-bot
     working_dir: /app
-    environment:
-      - TOKEN=${TOKEN}
-      - IP=${IP}
     volumes:
       - ./bot:/app
       - db-volume:/db
