@@ -1,0 +1,26 @@
+{
+    "dependencies": {
+      "axios": "^1.7.7",
+      "telegraf": "^4.16.3",
+      "telegraf-media-group": "^1.2.1"
+    },
+    "name": "xpd-conf-bot",
+    "version": "1.0.0",
+    "description": "xpd confession bot for takes and some other minor shit",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/creepy0964/xpd-conf-bot.git"
+    },
+    "author": "creepy0964",
+    "license": "WTFPL",
+    "bugs": {
+      "url": "https://github.com/creepy0964/xpd-conf-bot/issues"
+    },
+    "homepage": "https://github.com/creepy0964/xpd-conf-bot#readme",
+    "type": "module"
+  }
+  

@@ -11,7 +11,7 @@ services:
     volumes:
       - ./bot:/app
       - db-volume:/db
-    command: sh -c "npm install telegraf telegraf-media-group axios && node index.js"
+    command: "npm start"
   
   xpd-api:
     image: node:latest
@@ -22,7 +22,7 @@ services:
     volumes:
       - ./api:/app
       - db-volume:/db
-    command: sh -c "npm install express better-sqlite3 && node index.js"
+    command: "npm start"
 
 volumes:
   db-volume:
