@@ -1,2 +1,2 @@
-# aspd-conf-bot
-aspd confession bot for takes and some other minor shit
+# xpd-conf-bot
+personality disorders confession bot for takes and some other minor shit

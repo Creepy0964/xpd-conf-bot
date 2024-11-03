@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  xpd-bot:
+    image: node:latest
+    container_name: xpd-conf-bot
+    working_dir: /app
+    environment:
+      - TOKEN=${TOKEN}
+      - IP=${IP}
+    volumes:
+      - ./bot:/app
+      - db-volume:/db
+    command: sh -c "npm install telegraf telegraf-media-group axios && node index.js"
+  
+  xpd-api:
+    image: node:latest
+    container_name: xpd-conf-api
+    working_dir: /app
+    ports:
+      - "7777:7777"
+    volumes:
+      - ./api:/app
+      - db-volume:/db
+    command: sh -c "npm install express better-sqlite3 && node index.js"
+
+volumes:
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/aspd-conf-bot
+      o: bind

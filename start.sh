@@ -1,1 +1,0 @@
-node takes.js & node ads.js
