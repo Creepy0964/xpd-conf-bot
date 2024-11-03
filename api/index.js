@@ -2,7 +2,7 @@ import e from "express";
 import Database from "better-sqlite3";
 
 const app = e();
-const db = new Database('./db/database.db');
+const db = new Database('/db/database.db');
 
 app.use(e.json());
 
