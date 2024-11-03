@@ -29,5 +29,5 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /root/aspd-conf-bot
+      device: /root/xpd-conf-bot
       o: bind
