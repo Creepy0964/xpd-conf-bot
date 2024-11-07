@@ -10,7 +10,8 @@ services:
       - db-volume:/db
     command: "npm start"
     networks:
-      - xpd-network
+      xpd-network:
+        ipv4_address: '172.19.0.2'
   
   xpd-api:
     image: node:latest
@@ -23,7 +24,8 @@ services:
       - db-volume:/db
     command: "npm start"
     networks:
-      - xpd-network
+      xpd-network:
+        ipv4_address: '172.19.0.3'
 
 volumes:
   db-volume:
