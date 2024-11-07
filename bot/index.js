@@ -30,24 +30,24 @@ bot.on('message', async (ctx) => {
     const profile = await axios.get(`${process.env.IP}:7777/profile/${ctx.from.id}`);
 
     if(profile.data.state == 1) {
-        let author = `${ctx.from.username ? ctx.from.username : ctx.from.id}`.replace(/./g, "\\$&");
+        let author = `${ctx.from.username ? ctx.from.username : ctx.from.id}`.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1");
         if(ctx.mediaGroup) {
             let media = [];
             for(const message of ctx.mediaGroup) {
                 if(ctx.msg.photo) {
-                    if(message.caption) media.push({type: 'photo', media: message.photo[0].file_id, caption: `\`${message.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
+                    if(message.caption) media.push({type: 'photo', media: message.photo[0].file_id, caption: `\`${message.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
                     else media.push({type: 'photo', media: message.photo[0].file_id});
                 }
                 if(ctx.msg.document) {
-                    if(message.caption) media.push({type: 'document', media: message.document.file_id, caption: `\`${message.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
+                    if(message.caption) media.push({type: 'document', media: message.document.file_id, caption: `\`${message.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
                     else media.push({type: 'document', media: message.document[0].file_id});
                 }
                 if(ctx.msg.video) {
-                    if(message.caption) media.push({type: 'video', media: message.video.file_id, caption: `\`${message.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
+                    if(message.caption) media.push({type: 'video', media: message.video.file_id, caption: `\`${message.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
                     else media.push({type: 'video', media: message.video[0].file_id});
                 }
                 if(ctx.msg.audio) {
-                    if(message.caption) media.push({type: 'audio', media: message.audio.file_id, caption: `\`${message.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
+                    if(message.caption) media.push({type: 'audio', media: message.audio.file_id, caption: `\`${message.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, parse_mode: 'MarkdownV2'});
                     else media.push({type: 'audio', media: message.audio[0].file_id});
                 }
             }
@@ -57,30 +57,30 @@ bot.on('message', async (ctx) => {
         else {
             if(ctx.msg.photo && !ctx.mediaGroup) {
                 await bot.telegram.sendMessage(adm_chat, `Автор фотографии: ${author}`);
-                await bot.telegram.sendPhoto(adm_chat, ctx.msg.photo[0].file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendPhoto(adm_chat, ctx.msg.photo[0].file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else if(ctx.msg.video && !ctx.mediaGroup) {
                 await bot.telegram.sendMessage(adm_chat, `Автор видео: ${author}`);
-                await bot.telegram.sendVideo(adm_chat, ctx.msg.video.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendVideo(adm_chat, ctx.msg.video.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else if(ctx.msg.audio && !ctx.mediaGroup) {
                 await bot.telegram.sendMessage(adm_chat, `Автор аудиофайла: ${author}`);
-                await bot.telegram.sendAudio(adm_chat, ctx.msg.audio.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendAudio(adm_chat, ctx.msg.audio.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else if(ctx.msg.document && !ctx.mediaGroup) {
                 await bot.telegram.sendMessage(adm_chat, `Автор документа: ${author}`);
-                await bot.telegram.sendDocument(adm_chat, ctx.msg.document.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendDocument(adm_chat, ctx.msg.document.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else if(ctx.msg.voice) {
                 await bot.telegram.sendMessage(adm_chat, `Автор голосового сообщения: ${author}`);
-                await bot.telegram.sendVoice(adm_chat, ctx.msg.voice.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendVoice(adm_chat, ctx.msg.voice.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else if(ctx.msg.video_note) {
                 await bot.telegram.sendMessage(adm_chat, `Автор видеосообщения: ${author}`);
-                await bot.telegram.sendVideoNote(adm_chat, ctx.msg.video_note.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendVideoNote(adm_chat, ctx.msg.video_note.file_id, {caption: ctx.msg.caption? `\`${ctx.msg.caption.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\`` : "\`#тейк | @xpdforum_takes_bot | @xpdforum\`", parse_mode: 'MarkdownV2'});
             }
             else {
-                await bot.telegram.sendMessage(adm_chat, `Автор тейка: ${author}\n\n\`${ctx.message.text.replace(/./g, "\\$&")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, {parse_mode: 'MarkdownV2'});
+                await bot.telegram.sendMessage(adm_chat, `Автор тейка: ${author}\n\n\`${ctx.message.text.replace(/([_*[\]()~`>#\+\-=|{}.!])/g, "\\$1")}\n\n#тейк | @xpdforum_takes_bot | @xpdforum\``, {parse_mode: 'MarkdownV2'});
             }
         }
         const profile = await axios.patch(`${process.env.IP}:7777/profile/state`, {
