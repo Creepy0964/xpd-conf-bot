@@ -1,0 +1,20 @@
+{
+  "name": "cf-bot-new",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx --env-file=./src/config/.env src/index.ts"
+  },
+  "dependencies": {
+    "@dietime/telegraf-media-group": "^1.0.5",
+    "@telegraf/types": "^8.3.1",
+    "@types/node": "^22.14.1",
+    "better-sqlite3": "^11.9.1",
+    "telegraf": "^4.16.3",
+    "tsx": "^4.19.3"
+  }
+}

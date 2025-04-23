@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  xpd-bot:
+    image: node:latest
+    container_name: xpd-conf-bot
+    working_dir: /app
+    restart: always
+    volumes:
+      - ./:/app
+      - db-volume:/db
+    command: "npm start"
+    networks:
+      xpd-network:
+        ipv4_address: '172.19.0.2'
+
+volumes:
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/xpd-bot-db
+      o: bind
+
+networks:
+  xpd-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
