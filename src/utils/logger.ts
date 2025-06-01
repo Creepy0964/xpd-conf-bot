@@ -1,5 +1,3 @@
-import { appendFileSync } from "fs";
-
 export class Logger {
     logType: number;
 
@@ -8,34 +6,18 @@ export class Logger {
     }
 
     info(text: string) {
-        if(this.logType >= 1) {
-            const date = new Date();
-            console.log(`[${date}] INFO: ${text}`);
-            appendFileSync(`./logs/${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.log`, `[${date}] INFO: ${text}\n`);
-        }
+        if(this.logType >= 1) console.log(`[${new Date()}] INFO: ${text}`);
     }
 
     warn(text: string) {
-        if(this.logType >= 3) {
-            const date = new Date();
-            console.log(`[${date}] WARN: ${text}`);
-            appendFileSync(`./logs/${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.log`, `[${date}] WARN: ${text}\n`);
-        }
+        if(this.logType >= 3) console.log(`[${new Date()}] WARN: ${text}`);
     }
 
     error(text: string) {
-        if(this.logType >= 2) {
-            const date = new Date();
-            console.log(`[${date}] ERROR: ${text}`);
-            appendFileSync(`./logs/${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.log`, `[${date}] ERROR: ${text}\n`);
-        }
+        if(this.logType >= 2) console.error(`[${new Date()}] ERROR: ${text}`);
     }
 
     debug(text: string) {
-        if(this.logType >= 4) {
-            const date = new Date();
-            console.log(`[${date}] DEBUG: ${text}`);
-            appendFileSync(`./logs/${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.log`, `[${date}] DEBUG: ${text}\n`);
-        }
+        if(this.logType >= 4) console.log(`[${new Date()}] DEBUG: ${text}`);
     }
 }

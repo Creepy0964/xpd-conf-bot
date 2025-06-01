@@ -1,20 +1,30 @@
 {
-  "name": "cf-bot-new",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "index.ts",
-  "scripts": {
-    "start": "tsx --env-file=./src/config/.env src/index.ts"
-  },
   "dependencies": {
     "@dietime/telegraf-media-group": "^1.0.5",
-    "@telegraf/types": "^8.3.1",
-    "@types/node": "^22.14.1",
+    "axios": "^1.7.7",
     "better-sqlite3": "^11.9.1",
+    "express": "^4.21.1",
     "telegraf": "^4.16.3",
+    "telegraf-media-group": "^1.2.1",
     "tsx": "^4.19.3"
-  }
+  },
+  "name": "aspd-conf-bot",
+  "version": "1.0.0",
+  "description": "aspd confession bot for takes and some other minor shit",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js",
+    "start": "tsx src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creepy0964/aspd-conf-bot.git"
+  },
+  "author": "creepy0964",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/creepy0964/aspd-conf-bot/issues"
+  },
+  "homepage": "https://github.com/creepy0964/aspd-conf-bot#readme",
+  "type": "module"
 }

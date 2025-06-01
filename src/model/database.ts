@@ -1,9 +1,6 @@
-import { UserI } from "../model/userModel.ts";
-import { logger } from "../index.ts";
+import { UserI } from "./interface.ts";
+import { db, logger } from "../index.ts";
 import { User } from "@telegraf/types";
-import Database from 'better-sqlite3';
-
-const db = new Database('./db/database.db');
 
 export function getUserByTId(tId: number): BotUser | undefined {
     const user: any = db.prepare(`SELECT * FROM profiles WHERE tId = ?`).get(tId);

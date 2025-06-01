@@ -5,7 +5,6 @@ services:
     image: node:latest
     container_name: xpd-conf-bot
     working_dir: /app
-    restart: always
     volumes:
       - ./:/app
       - db-volume:/db

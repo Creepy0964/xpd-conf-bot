@@ -1,7 +1,8 @@
-import { Scenes, Composer, session } from "telegraf";
+import { Scenes, session, Context } from "telegraf";
+import { Composer } from "telegraf";
 import { takeWizard } from "../wizard/takeWizard.ts";
-import { MyContext } from "../context/context.ts";
-import { getUserByTId } from "../database/userDatabase.ts";
+import { MyContext } from "../model/interface.ts";
+import { getUserByTId } from "../model/database.ts";
 import { logger } from "../index.ts";
 
 const composer = new Composer<MyContext>();

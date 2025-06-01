@@ -1,4 +1,10 @@
-import { Context, Scenes } from "telegraf";
+import { Scenes, Context } from "telegraf";
+
+export interface UserI {
+    tId: number,
+    username: string,
+    isBanned: number
+}
 
 interface SessionData extends Scenes.WizardSession {
     typology: string;
